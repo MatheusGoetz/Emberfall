@@ -1,0 +1,32 @@
+# Node
+node_modules/
+dist/
+.env
+.env.*
+
+# .NET
+bin/
+obj/
+
+# IDE
+.vscode/
+.idea/
+.vs/
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build
+build/
+coverage/
+
+# C++
+*.o
+*.obj
+*.exe
+*.dll
+*.so
