@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #090d16;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+canvas {
+  display: block;
+}
