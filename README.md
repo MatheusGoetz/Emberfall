@@ -6,27 +6,47 @@ choices, turn-based combat and character progression.
 The project is also a game engineering learning environment combining
 web development, game development and software engineering.
 
-## Planned Stack
+## Architecture
 
-### Game Client
+### Web Client
 - React
 - TypeScript
+- Vite
+
+### Game Runtime
 - Phaser
 
-### Backend
-- C#
-- ASP.NET Core
-- PostgreSQL
-
-### Game Engine Modules
+### Game Core
 - C++
 - WebAssembly
+- Emscripten
 
-### DevOps
-- Git
-- GitHub
+### Backend
+- Java
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+
+### Database
+- PostgreSQL
+
+### Infrastructure
+- Docker
+- Docker Compose
 - GitHub Actions
+
+## Project Goals
+
+The project is designed to practice:
+
+- Web development
+- Game development
+- Programming logic
+- Software architecture
+- Git and version control
+- Automated testing
 - CI/CD
+- Deployment
 
 ## Status
 
