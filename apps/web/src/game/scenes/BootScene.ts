@@ -6,8 +6,6 @@ export class BootScene extends Phaser.Scene {
   }
 
   create() {
-    console.log('BootScene criada!');
-
     this.scene.start('MenuScene');
   }
 }
