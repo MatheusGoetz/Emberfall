@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Player } from '../entities/Player';
 
 type MovementKeys = Record<
   'up' | 'down' | 'left' | 'right',
@@ -6,23 +7,25 @@ type MovementKeys = Record<
 >;
 
 export class PlayerController {
-  private player: Phaser.GameObjects.Rectangle;
-  private keys: MovementKeys;
+  private readonly scene: Phaser.Scene;
+  private readonly player: Player;
+  private readonly keys: MovementKeys;
 
   private readonly playerSize = 32;
   private readonly playerSpeed = 200;
 
   constructor(
-    private readonly scene: Phaser.Scene,
+    scene: Phaser.Scene,
     x: number,
     y: number
   ) {
-    this.player = scene.add.rectangle(
+    this.scene = scene
+
+    this.player = new Player(
+      scene,
       x,
       y,
-      this.playerSize,
-      this.playerSize,
-      0xffffff
+      this.playerSize
     );
 
     this.keys = scene.input.keyboard!.addKeys({
@@ -58,24 +61,28 @@ export class PlayerController {
 
     const distance = this.playerSpeed * (delta / 1000);
 
-    this.player.x += direction.x * distance;
-    this.player.y += direction.y * distance;
+    this.player.move(
+      direction.x * distance,
+      direction.y * distance
+    );
 
     this.applyWorldBounds();
   }
   private applyWorldBounds(): void {
     const halfPlayerSize = this.playerSize / 2;
 
-    this.player.x = Phaser.Math.Clamp(
+    const x = Phaser.Math.Clamp(
       this.player.x,
       halfPlayerSize,
       this.scene.scale.width - halfPlayerSize
     );
 
-    this.player.y = Phaser.Math.Clamp(
+    const y = Phaser.Math.Clamp(
       this.player.y,
       halfPlayerSize,
       this.scene.scale.height - halfPlayerSize
     );
+
+    this.player.setPosition(x, y);
   }
 }
